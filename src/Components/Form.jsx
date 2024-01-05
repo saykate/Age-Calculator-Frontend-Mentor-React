@@ -10,6 +10,7 @@ export default function Form({ data, errors, handleDataChange, handleErrors }) {
         id="day"
         placeholder="DD"
         onChange={handleDataChange}
+        error={errors.day}
         errorText="Day should be from 1 - 31"
       />
       <Inputs
@@ -19,6 +20,7 @@ export default function Form({ data, errors, handleDataChange, handleErrors }) {
         id="month"
         placeholder="MM"
         onChange={handleDataChange}
+        error={errors.month}
         errorText="Month should be between 1 - 12"
       />
       <Inputs
@@ -28,6 +30,7 @@ export default function Form({ data, errors, handleDataChange, handleErrors }) {
         id="year"
         placeholder="YYYY"
         onChange={handleDataChange}
+        error={errors.year}
         errorText="Year should be in the past and 4 digits"
       />
     </form>
