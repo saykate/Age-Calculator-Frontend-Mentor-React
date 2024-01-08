@@ -1,9 +1,9 @@
-import Inputs from "./Inputs";
+import Input from "./Input";
 
-export default function Form({ data, errors, handleDataChange, handleErrors }) {
+export default function Form({ data, errors, handleDataChange }) {
   return (
-    <form onChange={handleErrors}>
-      <Inputs
+    <form>
+      <Input
         type="number"
         value={data.day}
         name="DAY"
@@ -11,9 +11,8 @@ export default function Form({ data, errors, handleDataChange, handleErrors }) {
         placeholder="DD"
         onChange={handleDataChange}
         error={errors.day}
-        errorText="Day should be from 1 - 31"
       />
-      <Inputs
+      <Input
         type="number"
         value={data.month}
         name="MONTH"
@@ -21,9 +20,8 @@ export default function Form({ data, errors, handleDataChange, handleErrors }) {
         placeholder="MM"
         onChange={handleDataChange}
         error={errors.month}
-        errorText="Month should be between 1 - 12"
       />
-      <Inputs
+      <Input
         type="number"
         value={data.year}
         name="YEAR"
@@ -31,7 +29,6 @@ export default function Form({ data, errors, handleDataChange, handleErrors }) {
         placeholder="YYYY"
         onChange={handleDataChange}
         error={errors.year}
-        errorText="Year should be in the past and 4 digits"
       />
     </form>
   );

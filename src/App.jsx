@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./Components/Form.jsx";
 import Display from "./Components/Display.jsx";
+
+let formEdited = false;
 
 function App() {
   const [data, setData] = useState({
@@ -8,38 +10,69 @@ function App() {
     month: "",
     year: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    day: null, 
+    month: null, 
+    year: null
+  });
 
-  const validateValues = (data) => {
-    let errors = {};
-    if(data.day < 0 || data.day > 31 || data.day.length > 2 || !data.day) {
+  const validateDay = (day, errors) => {
+      if (!day) {
+        errors.day = "This field is required"
+      } else if(day < 1 || day > 31 || day.length > 2) {
         errors.day = "Not a valid Day"
+    } else {
+      errors.day = null
     }
-    if(data.month < 0 || data.month > 12 || data.month.length > 2 || !data.month) {
-        errors.month = "Not a valid Month"
+  }
+  const validateMonth = (month, errors) => {
+    if (!month) {
+      errors.month = "This field is required"
+    } else if(month < 1 || month > 12 || month.length > 2) {
+      errors.month = "Not a valid Month"
+    } else {
+      errors.month = null
     }
-    const currentYear = new Date().getFullYear()
-    if(data.year.length !== 4 || data.year > currentYear || !data.year) {
+  }
+  const validateYear = (year, errors) => {
+    const currentYear = new Date().getFullYear();
+    if (!year) {
+      errors.year = "This field is required"
+    } else if(year.length !== 4) {
       errors.year = "Not a valid Year"
-  }
-  return errors;
-  }
+    } else if(year > currentYear) {
+      errors.year = "Must be in the past"
+    } else {
+      errors.year = null
+    }
+    }
+
+  useEffect(() => {
+    if(!formEdited) {
+      console.log("form edited:", formEdited)
+      return
+    }
+    const validateValues = (data) => {
+      let errors = {};
+      validateDay(data.day, errors);
+      validateMonth(data.month, errors);
+      validateYear(data.year, errors);
+      return errors;
+    }
+    setErrors(validateValues(data));
+  }, [data])
 
   function handleDataChange(e) {
     const newData = { ...data, [e.target.id]: e.target.value };
     setData(newData)
-  }
-
-  function handleErrors(e) {
-    e.preventDefault();
-    setErrors(validateValues(data));
+    formEdited = true
   }
 
   return (
     <>
       <div className="card">
         <div className="inputs">
-          <Form data={data} errors={errors} handleDataChange={handleDataChange} handleErrors={handleErrors} />
+          <Form data={data} errors={errors} handleDataChange={handleDataChange} />
         </div>
         <hr />
         <img className="arrow" src="./src/assets/arrow.svg" alt="" />
