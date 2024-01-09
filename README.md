@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-src/assets/Screenshot 2024-01-09 at 9.53.08 AM.png
+./src/assets/Screenshot 2024-01-09 at 9.53.08 AM.png
 
 ### Links
 
