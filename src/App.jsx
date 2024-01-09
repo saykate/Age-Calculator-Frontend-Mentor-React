@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Form from "./Components/Form.jsx";
 import Display from "./Components/Display.jsx";
+import arrow from './assets/arrow.svg'
 
 let formEdited = false;
 
@@ -74,7 +75,7 @@ function App() {
           <Form data={data} errors={errors} handleDataChange={handleDataChange} />
         </div>
         <hr />
-        <img className="arrow" src="./src/assets/arrow.svg" alt="" />
+        <img className="arrow" src={arrow} />
         <Display data={data} />
       </div>
       <div className="attribution">
