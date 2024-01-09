@@ -20,7 +20,7 @@ function App() {
       if (!day) {
         errors.day = "This field is required"
       } else if(day < 1 || day > 31 || day.length > 2) {
-        errors.day = "Not a valid Day"
+        errors.day = "Must be a valid Day"
     } else {
       errors.day = null
     }
@@ -29,7 +29,7 @@ function App() {
     if (!month) {
       errors.month = "This field is required"
     } else if(month < 1 || month > 12 || month.length > 2) {
-      errors.month = "Not a valid Month"
+      errors.month = "Must be a valid Month"
     } else {
       errors.month = null
     }
@@ -39,7 +39,7 @@ function App() {
     if (!year) {
       errors.year = "This field is required"
     } else if(year.length !== 4) {
-      errors.year = "Not a valid Year"
+      errors.year = "Must be a valid Year"
     } else if(year > currentYear) {
       errors.year = "Must be in the past"
     } else {
@@ -49,7 +49,6 @@ function App() {
 
   useEffect(() => {
     if(!formEdited) {
-      console.log("form edited:", formEdited)
       return
     }
     const validateValues = (data) => {

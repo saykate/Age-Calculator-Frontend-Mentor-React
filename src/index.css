@@ -96,8 +96,19 @@ body {
 }
 
 .error {
-  /* display: none; */
   color: red;
+  font-size: 9px;
+  font-weight: 100;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+.inputError label {
+  color: red;
+}
+
+.inputError input {
+  border: solid red;
 }
 
 hr {
@@ -109,7 +120,7 @@ hr {
 
 .arrow {
   position: absolute;
-  top: 8.5rem;
+  bottom: 16.5rem;
   left: 8rem;
   width: 3.5rem;
   background-color: var(--clr-purple);
@@ -162,7 +173,7 @@ span {
   }
   .arrow {
       width: 6.25rem;
-      top: 8rem;
+      bottom: 21.5rem;
       left: auto;
       right: 3.5rem;
   }
