@@ -121,7 +121,7 @@ hr {
 .arrow {
   position: absolute;
   bottom: 16.5rem;
-  left: 8rem;
+  left: 9rem;
   width: 3.5rem;
   background-color: var(--clr-purple);
   border-radius: 50%;
