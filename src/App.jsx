@@ -70,15 +70,15 @@ function App() {
 
   return (
     <>
-      <div className="card">
+      <main className="card">
         <div className="inputs">
           <Form data={data} errors={errors} handleDataChange={handleDataChange} />
         </div>
         <hr />
-        <img className="arrow" src={arrow} />
+        <img className="arrow" src={arrow} alt="arrow icon"/>
         <Display data={data} />
-      </div>
-      <div className="attribution">
+      </main>
+      <footer className="attribution">
         Challenge by{" "}
         <a
           href="https://www.frontendmentor.io?ref=challenge"
@@ -88,7 +88,7 @@ function App() {
           Frontend Mentor
         </a>
         Coded by <a href="#">Katie Sayers</a>
-      </div>
+      </footer>
     </>
   );
 }
